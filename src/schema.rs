@@ -2,30 +2,30 @@
 
 diesel::table! {
     tag_keywords (id) {
-        id -> Nullable<Integer>,
-        keyword -> Nullable<Text>,
-        tag_id -> Nullable<Integer>,
+        id -> Integer,
+        keyword -> Text,
+        tag_id -> Integer,
     }
 }
 
 diesel::table! {
     tags (id) {
-        id -> Nullable<Integer>,
-        name -> Nullable<Text>,
+        id -> Integer,
+        name -> Text,
     }
 }
 
 diesel::table! {
     work_tags (work_id, tag_id) {
-        work_id -> Nullable<Integer>,
-        tag_id -> Nullable<Integer>,
+        work_id -> Integer,
+        tag_id -> Integer,
     }
 }
 
 diesel::table! {
     worklog (id) {
-        id -> Nullable<Integer>,
-        created_at -> Nullable<Binary>,
+        id -> Integer,
+        created_at -> Text,
         description -> Text,
     }
 }

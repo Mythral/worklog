@@ -1,24 +1,24 @@
 CREATE TABLE worklog (
-  id INTEGER PRIMARY KEY,
-  created_at DEFAULT CURRENT_TIMESTAMP,
+  id INTEGER PRIMARY KEY NOT NULL,
+  created_at VARCHAR NOT NULL DEFAULT CURRENT_TIMESTAMP,
   description VARCHAR NOT NULL
 );
 
 CREATE TABLE tags (
-  id INTEGER PRIMARY KEY,
-  name VARCHAR
+  id INTEGER PRIMARY KEY NOT NULL,
+  name VARCHAR NOT NULL
 );
 
 CREATE TABLE tag_keywords (
-  id INTEGER PRIMARY KEY,
-  keyword VARCHAR,
-  tag_id INTEGER,
+  id INTEGER PRIMARY KEY NOT NULL,
+  keyword VARCHAR NOT NULL, 
+  tag_id INTEGER NOT NULL,
   FOREIGN KEY (tag_id) REFERENCES tags(id)
 );
 
 CREATE TABLE work_tags (
-  work_id INTEGER,
-  tag_id INTEGER,
+  work_id INTEGER NOT NULL,
+  tag_id INTEGER NOT NULL,
   FOREIGN KEY(work_id) REFERENCES worklog(id),
   FOREIGN KEY(tag_id) REFERENCES tags(id),
   PRIMARY KEY(work_id, tag_id)
