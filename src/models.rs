@@ -37,8 +37,8 @@ pub struct NewTagKeyword<'a> {
 #[derive(Queryable)]
 pub struct TagKeyword {
     pub id: i32,
-    pub tag_id: i32,
     pub keyword: String,
+    pub tag_id: i32,
 }
 
 #[derive(Queryable)]
