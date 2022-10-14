@@ -85,11 +85,9 @@ pub fn create_tag(name: &str, keywords: Vec<&str>) -> Tag {
 
     let keywords: Vec<NewTagKeyword> = keywords
         .into_iter()
-        .map(|keyword: &str| -> NewTagKeyword {
-            NewTagKeyword {
-                tag_id: tag.id,
-                keyword,
-            }
+        .map(|keyword: &str| NewTagKeyword {
+            tag_id: tag.id,
+            keyword,
         })
         .collect();
 
