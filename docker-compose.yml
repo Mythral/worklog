@@ -1,0 +1,11 @@
+version: "2"
+services:
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=worklog
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - 5432:5432

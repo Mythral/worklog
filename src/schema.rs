@@ -2,31 +2,31 @@
 
 diesel::table! {
     tag_keywords (id) {
-        id -> Integer,
-        keyword -> Text,
-        tag_id -> Integer,
+        id -> Int4,
+        keyword -> Varchar,
+        tag_id -> Int4,
     }
 }
 
 diesel::table! {
     tags (id) {
-        id -> Integer,
-        name -> Text,
+        id -> Int4,
+        name -> Varchar,
     }
 }
 
 diesel::table! {
     work_tags (work_id, tag_id) {
-        work_id -> Integer,
-        tag_id -> Integer,
+        work_id -> Int4,
+        tag_id -> Int4,
     }
 }
 
 diesel::table! {
     worklog (id) {
-        id -> Integer,
-        created_at -> Text,
-        description -> Text,
+        id -> Int4,
+        created_at -> Timestamp,
+        description -> Varchar,
     }
 }
 

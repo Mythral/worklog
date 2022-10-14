@@ -1,4 +1,5 @@
 use crate::schema;
+use chrono::prelude::*;
 use diesel::prelude::*;
 
 #[derive(Insertable)]
@@ -10,14 +11,27 @@ pub struct NewWorkItem<'a> {
 #[derive(Queryable)]
 pub struct WorkItem {
     pub id: i32,
-    pub created_at: String,
+    pub created_at: NaiveDateTime,
     pub description: String,
+}
+
+#[derive(Insertable)]
+#[diesel(table_name = schema::tags)]
+pub struct NewTag<'a> {
+    pub name: &'a str,
 }
 
 #[derive(Queryable)]
 pub struct Tag {
     pub id: i32,
     pub name: String,
+}
+
+#[derive(Insertable)]
+#[diesel(table_name = schema::tag_keywords)]
+pub struct NewTagKeyword<'a> {
+    pub tag_id: i32,
+    pub keyword: &'a str,
 }
 
 #[derive(Queryable)]
