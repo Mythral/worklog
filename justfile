@@ -10,3 +10,7 @@ reset:
 
 run *ARGS:
   cargo run -- {{ARGS}}
+
+backup:
+  docker compose exec db pg_dumpall -U postgres | lz4 | backup.pg.lz4
+
